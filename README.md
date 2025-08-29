@@ -33,6 +33,10 @@ This is a simple web-based calculator application built using core PHP and jQuer
 - Make sure JavaScript is enabled in your browser for full functionality.
 
 
+## Screenshot
+Screenshot for reference.
+https://prnt.sc/vbfq3XA_HxJq
+
 ## Author
 **Gokul S**  
 Madurai, India – 625001  
