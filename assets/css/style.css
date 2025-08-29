@@ -1,0 +1,114 @@
+/* style.css - minimal glassmorphism */
+:root{
+  --bg: #0f1724;
+  --card: rgba(255,255,255,0.06);
+  --accent: rgba(255,255,255,0.85);
+  --glass: rgba(255,255,255,0.06);
+}
+
+*{box-sizing:border-box;font-family:Inter,Segoe UI,Roboto,"Helvetica Neue",Arial,sans-serif}
+html,body{height:100%;margin:0;background:linear-gradient(135deg,#071029 0%, #0b1530 100%);color:var(--accent);-webkit-font-smoothing:antialiased}
+.wrap{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:20px}
+
+.calculator.card{
+  width:360px;
+  max-width:96vw;
+  background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
+  border-radius:16px;
+  padding:18px;
+  box-shadow: 0 8px 30px rgba(2,6,23,0.7);
+  backdrop-filter: blur(8px) saturate(120%);
+  border:1px solid rgba(255,255,255,0.04);
+  transition: transform .18s ease;
+}
+.calculator.card:active{transform: scale(.998)}
+
+.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+.title{font-weight:700;font-size:18px}
+.subtitle{font-size:12px;color:rgba(255,255,255,0.6)}
+
+.display{background:rgba(255,255,255,0.02);padding:12px;border-radius:12px;margin-bottom:12px;min-height:84px}
+.history-line{font-size:12px;color:rgba(255,255,255,0.55);min-height:16px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.expr{width:100%;background:transparent;border:0;color:rgba(255,255,255,0.9);font-size:18px;outline:none;padding:4px 0}
+.result{font-size:24px;font-weight:600;color:#fff;text-align:right;padding-top:4px}
+
+.controls{display:grid;gap:8px}
+.row{display:flex;gap:8px}
+
+.btn{
+  flex:1;border-radius:10px;padding:10px 8px;border:0;background:rgba(255,255,255,0.03);color:var(--accent);font-weight:600;font-size:15px;
+  transition: transform .08s ease, box-shadow .08s ease;
+  box-shadow: 0 3px 8px rgba(2,6,23,0.5);
+}
+.btn:active{transform: translateY(2px)}
+.btn.small{padding:8px;font-size:13px}
+.btn.danger{background:rgba(255,60,60,0.12);color:#ffb3b3}
+.btn.op{background:rgba(255,255,255,0.025)}
+.btn.equals{background:linear-gradient(135deg,#2b8fff,#6da6ff);color:#002;flex:1}
+.btn.tall{height:100%}
+.zero{flex:2}
+
+.special{background:rgba(255,255,255,0.015);font-size:13px}
+.foot{margin-top:12px}
+.history{max-height:160px;overflow:auto;padding:8px;background:rgba(255,255,255,0.02);border-radius:8px}
+.history-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;font-size:14px}
+.history-list{list-style:none;padding:0;margin:0}
+.history-list li{font-size:13px;padding:6px;border-bottom:1px solid rgba(255,255,255,0.02);display:flex;justify-content:space-between;gap:10px}
+.history-list li span.expr{color:rgba(255,255,255,0.7)}
+.history-list li span.res{font-weight:700;color:#fff}
+
+/* Responsive adjustments */
+@media (max-width:420px){
+  .calculator.card{width:100%}
+  .result{font-size:20px}
+  .btn{padding:10px}
+}
+/* Modal Styles */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.6);
+}
+
+.modal-content {
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(10px);
+  margin: 10% auto;
+  padding: 20px;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 400px;
+  color: white;
+}
+
+.modal-content h2 {
+  margin-top: 0;
+  font-size: 18px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  padding-bottom: 5px;
+}
+
+#popupHistoryList {
+  list-style: none;
+  padding: 0;
+  margin: 15px 0;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+#popupHistoryList li {
+  padding: 5px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  display: flex;
+  justify-content: space-between;
+}
+
+.close {
+  float: right;
+  font-size: 24px;
+  cursor: pointer;
+  color: white;
+}
